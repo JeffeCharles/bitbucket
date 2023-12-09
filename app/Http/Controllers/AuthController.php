@@ -2,16 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Traits\HttpResponces;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreUser;
+use App\Http\Requests\LoginUserRequest;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+
+
+
 
 class AuthController extends Controller
 {
     use HttpResponces;
 
-    public function login(){
-        return "This is my login Method";
+    public function login(LoginUserRequest $request){
+        $request->validated();
+
+    $credentials = $request->only('email', 'password');
+
+    if (!Auth::attempt($credentials)) {
+        return $this->error('', 'Credentials do not match', 401);
+    }
+
+    $user = User::where('email', $request->email)->first();
+
+    return $this->success([
+        'user' => $user,
+        'token' => $user->createToken('Api Token of' . $user->name)->plainTextToken
+    ]);
     }
 
     public function register(StoreUser $request){

@@ -1,7 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+namespace Database\Factories;
 
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class TasksController extends Controller
@@ -11,7 +15,7 @@ class TasksController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json('test');
     }
 
     /**
