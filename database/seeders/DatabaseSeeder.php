@@ -1,6 +1,10 @@
 <?php
 
 namespace Database\Seeders;
+use Database\Factories\UserFactory;
+use Database\Factories\ProductsFactory;
+
+
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;

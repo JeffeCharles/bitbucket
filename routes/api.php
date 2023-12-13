@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Traits\HttpResponces;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\TasksController;
+use App\Http\Controllers\ProductsController;
 
 
 /*
@@ -33,5 +33,5 @@ Route::post('/register', [AuthController::class, 'register']);
 
 Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::post('/logout', [AuthController::class, 'logout']); 
-    Route::resource('/tasks', TasksController::class);
+    Route::resource('/products', ProductsController::class);
 });

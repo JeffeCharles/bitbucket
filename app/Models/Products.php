@@ -4,16 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use app\Models\User;
+use App\Models\User;
 
 
 
-class Task extends Model
+class Products extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'user_id', 'name', 'description', 'priority'
+        'user_id', 'name', 'description', 'augstums', 'garums', 'svars'
     ];
 
     public function user(){

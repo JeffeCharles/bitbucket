@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tasks', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->string('description');
-            $table->string('priority')->default('medium');
+            $table->string('augstums');
+            $table->string('garums');
+            $table->string('svars');
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tasks');
+        Schema::dropIfExists('products');
     }
 };
